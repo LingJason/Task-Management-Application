@@ -15,10 +15,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // routes import
-const productRouter = require("./routes/productRoutes.js");
+const taskRouter = require("./routes/taskRoutes.js");
 
 routes
-app.use("/api/product", productRouter);
+app.use("/api/task", taskRouter);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
