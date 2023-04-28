@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './components/Home';
-import CreateProduct from './components/CreateProduct';
-import EditProduct from './components/EditProduct';
+import CreateTask from './components/CreateTask';
+import EditTask from './components/EditTask';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 export default function App() {
@@ -10,8 +10,8 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/create' element={<CreateProduct/>}/>
-          <Route path='/edit' element={<EditProduct/>}/>
+          <Route path='/create' element={<CreateTask/>}/>
+          <Route path='/edit' element={<EditTask/>}/>
         </Routes>
       </BrowserRouter>
 
