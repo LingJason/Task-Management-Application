@@ -96,7 +96,7 @@ function Home() {
     <div>
       <NavBar />
       <Container>
-        <h1 className="title">BC Services</h1>
+        <h1 className="title">Task Management Service</h1>
         <div>Total tasks: {totalTask}</div>
         <InputGroup>
           <Form.Control
