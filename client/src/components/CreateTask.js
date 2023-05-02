@@ -15,8 +15,8 @@ export default function CreateTask() {
   const [importance, setImportance] = useState("");
   const [importanceError, setImportanceError] = useState(false);
 
-  const [startDate, setStartDate] = useState("");
-  const [startDateError, setStartDateError] = useState(false);
+  const [dueDate, setDueDate] = useState("");
+  const [dueDateError, setDueDateError] = useState(false);
 
   const [notes, setNotes] = useState("");
 
@@ -26,7 +26,7 @@ export default function CreateTask() {
     setTaskNameError(false);
     setTaskOwnerNameError(false);
     setImportanceError(false);
-    setStartDateError(false);
+    setDueDateError(false);
   };
 
   const handleSubmit = (e) => {
@@ -45,8 +45,8 @@ export default function CreateTask() {
       setImportanceError("Importance - Required");
     }
 
-    if (!startDate) {
-      setStartDateError("Start Date - Required");
+    if (!dueDate) {
+      setDueDateError("Due Date - Required");
     }
 
 
@@ -54,7 +54,7 @@ export default function CreateTask() {
       !taskName ||
       !taskOwnerName ||
       !importance ||
-      !startDate
+      !dueDate
     ) {
       return;
     }
@@ -64,8 +64,8 @@ export default function CreateTask() {
       task_name: taskName,
       task_owner_name: taskOwnerName,
       importance,
-      start_date: startDate,
-      notes,
+      due_date: dueDate,
+      notes
     };
 
     axios
@@ -107,7 +107,7 @@ export default function CreateTask() {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="formImportance">
-          <Form.Control
+          <Form.Select
             isInvalid={importanceError}
             feedback={importanceError ? importanceError : "Importance"}
             onChange={(e) => {
@@ -116,14 +116,18 @@ export default function CreateTask() {
             placeholder="Importance"
             required
             type="text"
-          ></Form.Control>
+          >
+            <option value={"Low"}>Low</option>
+            <option value={"Medium"}>Medium</option>
+            <option value={"High"}>High</option>
+          </Form.Select>
         </Form.Group>
-        <Form.Group controlId="formStartDate">
+        <Form.Group controlId="formDueDate">
           <Form.Control
-            isInvalid={startDateError}
-            feedback={startDateError ? startDateError : "Start Date"}
-            onChange={(e) => setStartDate(e.target.value)}
-            placeholder="Start Date"
+            isInvalid={dueDateError}
+            feedback={dueDateError ? dueDateError : "Due Date"}
+            onChange={(e) => setDueDate(e.target.value)}
+            placeholder="Due Date"
             required
             type="Date"
           ></Form.Control>

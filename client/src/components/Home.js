@@ -75,7 +75,7 @@ function Home() {
       <td className="text-center">{task.task_owner_name}</td>
       <td className="text-center">{task.importance}</td>
       <td className="text-center">
-        {new Date(task.start_date).toLocaleDateString()}
+        {new Date(task.due_date).toLocaleDateString()}
       </td>
       <td className="text-center">{task.notes}</td>
       <td className="text-center">
@@ -116,7 +116,7 @@ function Home() {
               <th className="text-center">Task Name</th>
               <th className="text-center">Task Owner</th>
               <th className="text-center">Importance</th>
-              <th className="text-center">Start Date</th>
+              <th className="text-center">Due Date</th>
               <th className="text-center">Notes</th>
               <th className="text-center">Actions</th>
             </tr>
