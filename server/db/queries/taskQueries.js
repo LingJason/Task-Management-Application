@@ -40,7 +40,7 @@ const getAllTasks = () => {
 const getTaskByOwner = (task_owner_name) => {
   return db
     .query(
-      "SELECT * FROM task WHERE LOWER(task_owner_name) LIKE LOWER($1) ORDER BY task_id",
+      "SELECT * FROM task WHERE task_owner_name ILIKE $1 ORDER BY task_id",
       ["%" + task_owner_name + "%"]
     )
     .then((data) => {
@@ -54,7 +54,19 @@ const getTaskByOwner = (task_owner_name) => {
 // Get Task by Task Name
 const getTaskByTaskName = (task_name) => {
   return db
-    .query("SELECT * FROM task WHERE LOWER(task_name) LIKE LOWER($1) ORDER BY task_id", [task_name])
+    .query("SELECT * FROM task WHERE task_name ILIKE $1 ORDER BY task_id", ["%" + task_name + "%"])
+    .then((data) => {
+      return data.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+// Get Task by Importance
+const getTaskByImportance = (importance) => {
+  return db
+    .query("SELECT * FROM task WHERE importance ILIKE $1 ORDER BY task_id", ["%" + importance + "%"])
     .then((data) => {
       return data.rows;
     })
@@ -102,6 +114,7 @@ module.exports = {
   addTask,
   getAllTasks,
   getTaskByOwner,
+  getTaskByImportance,
   getTaskByTaskName,
   updateTask,
   deleteTask,

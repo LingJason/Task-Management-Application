@@ -39,6 +39,16 @@ router.post("/search", (req, res) => {
           console.log(err.message);
         });
       break;
+    case "importance":
+      taskQueries
+        .getTaskByImportance(req.body.search)
+        .then((result) => {
+          res.json(result);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+      break;
     case "task":
       taskQueries
         .getTaskByTaskName(req.body.search)
@@ -64,7 +74,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-//DELETE - delete
+// DELETE - delete
 router.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
   taskQueries

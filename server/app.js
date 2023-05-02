@@ -1,6 +1,6 @@
 // declarations
 require('dotenv').config()
-const { ENVIRONMENT, PORT } = process.env;
+const { PORT } = process.env;
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -17,7 +17,7 @@ app.use(cors());
 // routes import
 const taskRouter = require("./routes/taskRoutes.js");
 
-routes
+// routes
 app.use("/api/task", taskRouter);
 
 app.listen(PORT, () => {
