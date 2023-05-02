@@ -6,12 +6,12 @@ const db = require("../../configs/db.config");
 const addTask = (newTask) => {
   return db
     .query(
-      `INSERT INTO task (task_name, task_owner_name, importance, start_date, notes) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
+      `INSERT INTO task (task_name, task_owner_name, importance, due_date, notes) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
       [
         newTask.task_name,
         newTask.task_owner_name,
         newTask.importance,
-        newTask.start_date,
+        newTask.due_date,
         newTask.notes,
       ]
     )
@@ -27,7 +27,7 @@ const addTask = (newTask) => {
 // Show all Task
 const getAllTasks = () => {
   return db
-    .query("SELECT * FROM task ORDER BY task_id;")
+    .query("SELECT * FROM task ORDER BY due_date;")
     .then((data) => {
       return data.rows;
     })
@@ -40,7 +40,7 @@ const getAllTasks = () => {
 const getTaskByOwner = (task_owner_name) => {
   return db
     .query(
-      "SELECT * FROM task WHERE task_owner_name ILIKE $1 ORDER BY task_id",
+      "SELECT * FROM task WHERE task_owner_name ILIKE $1 ORDER BY due_date",
       ["%" + task_owner_name + "%"]
     )
     .then((data) => {
@@ -54,7 +54,7 @@ const getTaskByOwner = (task_owner_name) => {
 // Get Task by Task Name
 const getTaskByTaskName = (task_name) => {
   return db
-    .query("SELECT * FROM task WHERE task_name ILIKE $1 ORDER BY task_id", ["%" + task_name + "%"])
+    .query("SELECT * FROM task WHERE task_name ILIKE $1 ORDER BY due_date", ["%" + task_name + "%"])
     .then((data) => {
       return data.rows;
     })
@@ -66,7 +66,7 @@ const getTaskByTaskName = (task_name) => {
 // Get Task by Importance
 const getTaskByImportance = (importance) => {
   return db
-    .query("SELECT * FROM task WHERE importance ILIKE $1 ORDER BY task_id", ["%" + importance + "%"])
+    .query("SELECT * FROM task WHERE importance ILIKE $1 ORDER BY due_date", ["%" + importance + "%"])
     .then((data) => {
       return data.rows;
     })
@@ -79,12 +79,12 @@ const getTaskByImportance = (importance) => {
 const updateTask = (updateTask) => {
   return db
     .query(
-      `UPDATE task SET task_name = $1 , task_owner_name = $2 , importance = $3, start_date = $4, notes = $5 WHERE task_id = $6`,
+      `UPDATE task SET task_name = $1 , task_owner_name = $2 , importance = $3, due_date = $4, notes = $5 WHERE task_id = $6`,
       [
         updateTask.task_name,
         updateTask.task_owner_name,
         updateTask.importance,
-        updateTask.start_date,
+        updateTask.due_date,
         updateTask.notes,
         updateTask.task_id,
       ]

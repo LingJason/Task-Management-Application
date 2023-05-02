@@ -6,6 +6,6 @@ CREATE TABLE task (
   task_name VARCHAR(255) NOT NULL,
   task_owner_name VARCHAR(255) NOT NULL,
   importance VARCHAR(255) NOT NULL,
-  start_date DATE NOT NULL DEFAULT CURRENT_DATE,
+  due_date DATE NOT NULL DEFAULT CURRENT_DATE,
   notes VARCHAR(255)
 );
