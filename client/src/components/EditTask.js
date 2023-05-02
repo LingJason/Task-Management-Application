@@ -80,7 +80,7 @@ export default function EditTask() {
 
     axios
       .put(
-        `http://localhost:3000/api/task/${location.state.task.task_id}`,
+        `http://localhost:8080/api/task/${location.state.task.task_id}`,
         updateTask
       )
       .then((result) => {

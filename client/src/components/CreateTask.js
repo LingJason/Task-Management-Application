@@ -69,7 +69,7 @@ export default function CreateTask() {
     };
 
     axios
-      .post("http://localhost:3000/api/task", newtask)
+      .post("http://localhost:8080/api/task", newtask)
       .then((result) => {
         navigate("/");
       })

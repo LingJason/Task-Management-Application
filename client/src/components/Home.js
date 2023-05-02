@@ -16,7 +16,7 @@ function Home() {
 
   const getTasks = () => {
     axios
-      .get("http://localhost:3000/api/task")
+      .get("http://localhost:8080/api/task")
       .then((result) => {
         setTasks(result.data);
         setTotalTask(result.data.length);
@@ -28,7 +28,7 @@ function Home() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000/api/task/delete/${id}`, { id })
+      .delete(`http://localhost:8080/api/task/delete/${id}`, { id })
       .then((result) => {
         //  remove the deleted product from the list
         const updatedTasks = tasks.filter(
@@ -54,7 +54,7 @@ function Home() {
       getTasks();
     } else {
       axios
-        .post("http://localhost:3000/api/task/search", {
+        .post("http://localhost:8080/api/task/search", {
           filter,
           search,
         })
@@ -105,7 +105,7 @@ function Home() {
           />
           <select onChange={(e) => setFilter(e.target.value)}>
             <option value="name">Name</option>
-            <option value="Second Value">Second Value</option>
+            <option value="task">Task</option>
           </select>
         </InputGroup>
         <Table striped bordered hover>
