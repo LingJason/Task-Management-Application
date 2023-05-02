@@ -1,4 +1,4 @@
-// db/queries/product.js
+// db/queries/Task.js
 
 const db = require("../../configs/db.config");
 
@@ -11,8 +11,8 @@ const addTask = (newTask) => {
         newTask.task_name,
         newTask.task_owner_name,
         newTask.importance,
-        newProduct.start_date,
-        newProduct.notes,
+        newTask.start_date,
+        newTask.notes,
       ]
     )
     .then((data) => {
