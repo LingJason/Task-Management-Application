@@ -105,6 +105,7 @@ function Home() {
           />
           <select onChange={(e) => setFilter(e.target.value)}>
             <option value="name">Name</option>
+            <option value="importance">Importance</option>
             <option value="task">Task</option>
           </select>
         </InputGroup>
