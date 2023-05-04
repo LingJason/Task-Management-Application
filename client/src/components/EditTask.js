@@ -26,7 +26,7 @@ export default function EditTask() {
   const [dueDate, setDueDate] = useState(location.state.task.due_date || "");
   const [dueDateError, setDueDateError] = useState(false);
 
-  const [notes, setNotes] = useState(false);
+  const [notes, setNotes] = useState(null);
 
   const resetError = () => {
     setTaskNameError(false);
