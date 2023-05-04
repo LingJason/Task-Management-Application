@@ -1,16 +1,15 @@
 // declarations
-require('dotenv').config()
+require("dotenv").config();
 const { PORT } = process.env;
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
 
 //middleware setup
-app.use(morgan('combined'));
+app.use(morgan("combined"));
 app.use(bodyParser.json());
 app.use(cors());
 

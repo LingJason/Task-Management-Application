@@ -23,7 +23,6 @@ const addTask = (newTask) => {
     });
 };
 
-
 // Show all Task
 const getAllTasks = () => {
   return db
@@ -54,7 +53,9 @@ const getTaskByOwner = (task_owner_name) => {
 // Get Task by Task Name
 const getTaskByTaskName = (task_name) => {
   return db
-    .query("SELECT * FROM task WHERE task_name ILIKE $1 ORDER BY due_date", ["%" + task_name + "%"])
+    .query("SELECT * FROM task WHERE task_name ILIKE $1 ORDER BY due_date", [
+      "%" + task_name + "%",
+    ])
     .then((data) => {
       return data.rows;
     })
@@ -66,7 +67,9 @@ const getTaskByTaskName = (task_name) => {
 // Get Task by Importance
 const getTaskByImportance = (importance) => {
   return db
-    .query("SELECT * FROM task WHERE importance ILIKE $1 ORDER BY due_date", ["%" + importance + "%"])
+    .query("SELECT * FROM task WHERE importance ILIKE $1 ORDER BY due_date", [
+      "%" + importance + "%",
+    ])
     .then((data) => {
       return data.rows;
     })
@@ -96,7 +99,6 @@ const updateTask = (updateTask) => {
       console.log(err.message);
     });
 };
-
 
 // Delete Task
 const deleteTask = (task_id) => {
