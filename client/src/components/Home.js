@@ -3,6 +3,9 @@ import axios from "axios";
 import { Button, Container, Table, InputGroup, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import NavBar from "./NavBar";
 import "../App.css";
 
@@ -84,10 +87,10 @@ function Home() {
             navigate("/edit", { replace: true, state: { task } });
           }}
         >
-          Edit
+          <EditIcon/>
         </Button>
         &nbsp;
-        <Button variant="warning" onClick={() => handleDelete(task.task_id)}>Delete</Button>
+        <Button variant="warning" onClick={() => handleDelete(task.task_id)}><DeleteIcon/></Button>
       </td>
     </tr>
   ));
@@ -128,7 +131,7 @@ function Home() {
           onClick={() => navigate("/create")}
           className="col-md-12 text-center"
         >
-          Create
+          <AddCircleOutlineIcon/>
         </Button>
       </Container>
     </div>
