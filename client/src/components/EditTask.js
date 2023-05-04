@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import NavBar from "./NavBar";
 import axios from "axios";
 
@@ -163,7 +164,7 @@ export default function EditTask() {
           onClick={(e) => handleSubmit(e)}
           type="submit"
         >
-          Update
+          <SaveAltIcon/>
         </Button>
       </Form>
     </div>

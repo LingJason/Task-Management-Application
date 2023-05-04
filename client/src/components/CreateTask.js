@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import axios from "axios";
-import SaveIcon from '@mui/icons-material/Save';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
 
 export default function CreateTask() {
   const [taskName, setTaskName] = useState("");
@@ -142,7 +142,7 @@ export default function CreateTask() {
           ></Form.Control>
         </Form.Group>
         <Button variant="warning" className="col-md-12 text-center" onClick={(e) => handleSubmit(e)} type="submit">
-          <SaveIcon/>
+          <SaveAltIcon/>
         </Button>
       </Form>
     </div>
