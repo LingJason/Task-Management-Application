@@ -8,7 +8,8 @@ export default function NavBar() {
     <nav className="navbar">
       <div className="container">
         <Link className="navbar-brand" to="/">
-        {/* <img src="" alt="" width="150" height="75"/> */}
+          <span className="navbar-name">TMS</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/4697/4697260.png" alt="logo" className="navbar-logo"/>
         </Link>
       </div>
     </nav>

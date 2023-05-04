@@ -18,6 +18,10 @@ h1 {
 }
 
 .form {
-  margin: 25px;
-  padding: 25px;
+  margin: 50px;
+  padding: 50px;
+}
+
+.title {
+  color: #008080;
 }

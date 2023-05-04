@@ -94,8 +94,9 @@ export default function EditTask() {
   return (
     <div>
       <NavBar />
-      <Form>
-        <Form.Group controlId="formTaskName">
+      <h1 className="title">Task Management Service</h1>
+      <Form className="mx-3" >
+        <Form.Group className="mb-3" controlId="formTaskName">
           <Form.Control
             isInvalid={taskNameError}
             feedback={taskNameError ? taskNameError : "task Name"}
@@ -106,7 +107,7 @@ export default function EditTask() {
             value={taskName}
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="formTaskOwnerName">
+        <Form.Group className="mb-3" controlId="formTaskOwnerName">
           <Form.Control
             isInvalid={taskOwnerNameError}
             feedback={
@@ -121,7 +122,7 @@ export default function EditTask() {
             value={taskOwnerName}
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="importance">
+        <Form.Group className="mb-3" controlId="importance">
           <Form.Select
             isInvalid={importanceError}
             feedback={
@@ -138,7 +139,7 @@ export default function EditTask() {
             <option value={"High"}>High</option>
             </Form.Select>
         </Form.Group>
-        <Form.Group controlId="formDueDate">
+        <Form.Group className="mb-3" controlId="formDueDate">
           <Form.Control
             isInvalid={dueDateError}
             feedback={dueDateError ? dueDateError : "Due Date"}
@@ -149,7 +150,7 @@ export default function EditTask() {
             value={dueDate}
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="formNotes">
+        <Form.Group className="mb-3" controlId="formNotes">
           <Form.Control
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Notes"
@@ -157,7 +158,7 @@ export default function EditTask() {
             value={notes}
           ></Form.Control>
         </Form.Group>
-        <Button
+        <Button variant="warning"
           className="col-md-12 text-center"
           onClick={(e) => handleSubmit(e)}
           type="submit"

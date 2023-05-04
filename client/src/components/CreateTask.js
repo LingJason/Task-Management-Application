@@ -81,8 +81,9 @@ export default function CreateTask() {
   return (
     <div>
       <NavBar />
-      <Form>
-        <Form.Group controlId="formTaskName">
+      <h1 className="title">Task Management Service</h1>
+      <Form className="mx-3" >
+        <Form.Group className="mb-3" controlId="formTaskName">
           <Form.Control
             isInvalid={taskNameError}
             feedback={taskNameError ? taskNameError : "Task Name"}
@@ -92,7 +93,7 @@ export default function CreateTask() {
             type="text"
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="formTaskOwnerName">
+        <Form.Group className="mb-3" controlId="formTaskOwnerName">
           <Form.Control
             isInvalid={taskOwnerNameError}
             feedback={
@@ -106,7 +107,7 @@ export default function CreateTask() {
             type="text"
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="formImportance">
+        <Form.Group className="mb-3" controlId="formImportance">
           <Form.Select
             isInvalid={importanceError}
             feedback={importanceError ? importanceError : "Importance"}
@@ -122,7 +123,7 @@ export default function CreateTask() {
             <option value={"High"}>High</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group controlId="formDueDate">
+        <Form.Group className="mb-3" controlId="formDueDate">
           <Form.Control
             isInvalid={dueDateError}
             feedback={dueDateError ? dueDateError : "Due Date"}
@@ -132,14 +133,14 @@ export default function CreateTask() {
             type="Date"
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="formNotes">
+        <Form.Group  className="mb-3" controlId="formNotes">
           <Form.Control
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Notes"
             type="text"
           ></Form.Control>
         </Form.Group>
-        <Button className="col-md-12 text-center" onClick={(e) => handleSubmit(e)} type="submit">
+        <Button variant="warning" className="col-md-12 text-center" onClick={(e) => handleSubmit(e)} type="submit">
           Save
         </Button>
       </Form>

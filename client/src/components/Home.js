@@ -79,7 +79,7 @@ function Home() {
       </td>
       <td className="text-center">{task.notes}</td>
       <td className="text-center">
-        <Button
+        <Button variant="warning"
           onClick={() => {
             navigate("/edit", { replace: true, state: { task } });
           }}
@@ -87,7 +87,7 @@ function Home() {
           Edit
         </Button>
         &nbsp;
-        <Button onClick={() => handleDelete(task.task_id)}>Delete</Button>
+        <Button variant="warning" onClick={() => handleDelete(task.task_id)}>Delete</Button>
       </td>
     </tr>
   ));
@@ -124,7 +124,7 @@ function Home() {
           <tbody>{tasksTable}</tbody>
         </Table>
         <br />
-        <Button
+        <Button variant="warning"
           onClick={() => navigate("/create")}
           className="col-md-12 text-center"
         >
