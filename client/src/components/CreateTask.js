@@ -87,31 +87,30 @@ export default function CreateTask() {
         <Form.Group className="mb-3" controlId="formTaskName">
           <Form.Control
             isInvalid={taskNameError}
-            feedback={taskNameError ? taskNameError : "Task Name"}
             onChange={(e) => setTaskName(e.target.value)}
             placeholder="Task Name"
             required
             type="text"
           ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            {taskNameError}
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formTaskOwnerName">
           <Form.Control
             isInvalid={taskOwnerNameError}
-            feedback={
-              taskOwnerNameError
-                ? taskOwnerNameError
-                : "Task Owner Name"
-            }
             onChange={(e) => setTaskOwnerName(e.target.value)}
             placeholder="Task Owner Name"
             required
             type="text"
           ></Form.Control>
+            <Form.Control.Feedback type="invalid">
+            {taskOwnerNameError}
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImportance">
           <Form.Select
             isInvalid={importanceError}
-            feedback={importanceError ? importanceError : "Importance"}
             onChange={(e) => {
               setImportance(e.target.value);
             }}
@@ -119,20 +118,26 @@ export default function CreateTask() {
             required
             type="text"
           >
+            <option value={""} disabled selected >Importance</option>
             <option value={"Low"}>Low</option>
             <option value={"Medium"}>Medium</option>
             <option value={"High"}>High</option>
           </Form.Select>
+          <Form.Control.Feedback type="invalid">
+            {importanceError}
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formDueDate">
           <Form.Control
             isInvalid={dueDateError}
-            feedback={dueDateError ? dueDateError : "Due Date"}
             onChange={(e) => setDueDate(e.target.value)}
             placeholder="Due Date"
             required
             type="Date"
           ></Form.Control>
+            <Form.Control.Feedback type="invalid">
+            {dueDateError}
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group  className="mb-3" controlId="formNotes">
           <Form.Control

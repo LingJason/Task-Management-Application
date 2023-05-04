@@ -135,7 +135,7 @@ export default function EditTask() {
             type="text"
             value={importance}
             >
-              <option value={"Low"}>Low</option>
+            <option value={"Low"}>Low</option>
             <option value={"Medium"}>Medium</option>
             <option value={"High"}>High</option>
             </Form.Select>
