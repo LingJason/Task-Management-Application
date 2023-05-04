@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useLocation, useNavigate } from "react-router-dom";
-import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
 import NavBar from "./NavBar";
 import axios from "axios";
 
@@ -10,9 +10,7 @@ export default function EditTask() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [taskName, setTaskName] = useState(
-    location.state.task.task_name || ""
-  );
+  const [taskName, setTaskName] = useState(location.state.task.task_name || "");
   const [taskNameError, setTaskNameError] = useState(false);
 
   const [taskOwnerName, setTaskOwnerName] = useState(
@@ -25,9 +23,7 @@ export default function EditTask() {
   );
   const [importanceError, setImportanceError] = useState(false);
 
-  const [dueDate, setDueDate] = useState(
-    location.state.task.due_date || ""
-  );
+  const [dueDate, setDueDate] = useState(location.state.task.due_date || "");
   const [dueDateError, setDueDateError] = useState(false);
 
   const [notes, setNotes] = useState(false);
@@ -59,13 +55,7 @@ export default function EditTask() {
       setDueDateError("Due Date - Required");
     }
 
-
-    if (
-      !taskName ||
-      !taskOwnerName ||
-      !importance ||
-      !dueDate
-    ) {
+    if (!taskName || !taskOwnerName || !importance || !dueDate) {
       return;
     }
 
@@ -96,7 +86,7 @@ export default function EditTask() {
     <div>
       <NavBar />
       <h1 className="title">Update Task</h1>
-      <Form className="mx-3" >
+      <Form className="mx-3">
         <Form.Group className="mb-3" controlId="formTaskName">
           <Form.Control
             isInvalid={taskNameError}
@@ -106,7 +96,7 @@ export default function EditTask() {
             type="text"
             value={taskName}
           ></Form.Control>
-                    <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             {taskNameError}
           </Form.Control.Feedback>
         </Form.Group>
@@ -119,7 +109,7 @@ export default function EditTask() {
             type="text"
             value={taskOwnerName}
           ></Form.Control>
-                    <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             {taskOwnerNameError}
           </Form.Control.Feedback>
         </Form.Group>
@@ -131,12 +121,12 @@ export default function EditTask() {
             required
             type="text"
             value={importance}
-            >
+          >
             <option value={"Low"}>Low</option>
             <option value={"Medium"}>Medium</option>
             <option value={"High"}>High</option>
-            </Form.Select>
-            <Form.Control.Feedback type="invalid">
+          </Form.Select>
+          <Form.Control.Feedback type="invalid">
             {importanceError}
           </Form.Control.Feedback>
         </Form.Group>
@@ -146,10 +136,10 @@ export default function EditTask() {
             onChange={(e) => setDueDate(e.target.value)}
             placeholder="Due Date"
             required
-            type="text"
+            type="date"
             value={dueDate}
           ></Form.Control>
-                    <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             {dueDateError}
           </Form.Control.Feedback>
         </Form.Group>
@@ -161,12 +151,13 @@ export default function EditTask() {
             value={notes}
           ></Form.Control>
         </Form.Group>
-        <Button variant="warning"
+        <Button
+          variant="warning"
           className="col-md-12 text-center"
           onClick={(e) => handleSubmit(e)}
           type="submit"
         >
-          <SaveAltIcon/>
+          <SaveAltIcon />
         </Button>
       </Form>
     </div>

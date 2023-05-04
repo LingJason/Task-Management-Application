@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import axios from "axios";
-import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
 
 export default function CreateTask() {
   const [taskName, setTaskName] = useState("");
@@ -50,13 +50,7 @@ export default function CreateTask() {
       setDueDateError("Due Date - Required");
     }
 
-
-    if (
-      !taskName ||
-      !taskOwnerName ||
-      !importance ||
-      !dueDate
-    ) {
+    if (!taskName || !taskOwnerName || !importance || !dueDate) {
       return;
     }
 
@@ -66,7 +60,7 @@ export default function CreateTask() {
       task_owner_name: taskOwnerName,
       importance,
       due_date: dueDate,
-      notes
+      notes,
     };
 
     axios
@@ -83,7 +77,7 @@ export default function CreateTask() {
     <div>
       <NavBar />
       <h1 className="title">Create New Task</h1>
-      <Form className="mx-3" >
+      <Form className="mx-3">
         <Form.Group className="mb-3" controlId="formTaskName">
           <Form.Control
             isInvalid={taskNameError}
@@ -104,7 +98,7 @@ export default function CreateTask() {
             required
             type="text"
           ></Form.Control>
-            <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             {taskOwnerNameError}
           </Form.Control.Feedback>
         </Form.Group>
@@ -118,7 +112,9 @@ export default function CreateTask() {
             required
             type="text"
           >
-            <option value={""} disabled selected >Importance</option>
+            <option value={""} disabled selected>
+              Importance
+            </option>
             <option value={"Low"}>Low</option>
             <option value={"Medium"}>Medium</option>
             <option value={"High"}>High</option>
@@ -135,19 +131,24 @@ export default function CreateTask() {
             required
             type="Date"
           ></Form.Control>
-            <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             {dueDateError}
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group  className="mb-3" controlId="formNotes">
+        <Form.Group className="mb-3" controlId="formNotes">
           <Form.Control
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Notes"
             type="text"
           ></Form.Control>
         </Form.Group>
-        <Button variant="warning" className="col-md-12 text-center" onClick={(e) => handleSubmit(e)} type="submit">
-          <SaveAltIcon/>
+        <Button
+          variant="warning"
+          className="col-md-12 text-center"
+          onClick={(e) => handleSubmit(e)}
+          type="submit"
+        >
+          <SaveAltIcon />
         </Button>
       </Form>
     </div>

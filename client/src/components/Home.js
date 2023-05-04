@@ -3,9 +3,9 @@ import axios from "axios";
 import { Button, Container, Table, InputGroup, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import NavBar from "./NavBar";
 import "../App.css";
 
@@ -34,9 +34,7 @@ function Home() {
       .delete(`http://localhost:8080/api/task/delete/${id}`, { id })
       .then((result) => {
         //  remove the deleted product from the list
-        const updatedTasks = tasks.filter(
-          (task) => task.task_id !== id
-        );
+        const updatedTasks = tasks.filter((task) => task.task_id !== id);
         setTasks(updatedTasks);
         setTotalTask(updatedTasks.length);
       })
@@ -44,7 +42,6 @@ function Home() {
         console.log(e.message);
       });
   };
-
 
   // When App initially loads, fetch data and store in state
   useEffect(() => {
@@ -82,15 +79,18 @@ function Home() {
       </td>
       <td className="text-center">{task.notes}</td>
       <td className="text-center">
-        <Button variant="warning"
+        <Button
+          variant="warning"
           onClick={() => {
             navigate("/edit", { replace: true, state: { task } });
           }}
         >
-          <EditIcon/>
+          <EditIcon />
         </Button>
         &nbsp;
-        <Button variant="warning" onClick={() => handleDelete(task.task_id)}><DeleteIcon/></Button>
+        <Button variant="warning" onClick={() => handleDelete(task.task_id)}>
+          <DeleteIcon />
+        </Button>
       </td>
     </tr>
   ));
@@ -115,7 +115,7 @@ function Home() {
         <Table striped bordered hover>
           <thead>
             <tr>
-            <th className="text-center">Task Number</th>
+              <th className="text-center">Task Number</th>
               <th className="text-center">Task Name</th>
               <th className="text-center">Task Owner</th>
               <th className="text-center">Importance</th>
@@ -127,11 +127,12 @@ function Home() {
           <tbody>{tasksTable}</tbody>
         </Table>
         <br />
-        <Button variant="warning"
+        <Button
+          variant="warning"
           onClick={() => navigate("/create")}
           className="col-md-12 text-center"
         >
-          <AddCircleOutlineIcon/>
+          <AddCircleOutlineIcon />
         </Button>
       </Container>
     </div>
