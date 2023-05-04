@@ -82,7 +82,7 @@ export default function CreateTask() {
   return (
     <div>
       <NavBar />
-      <h1 className="title">Task Management Service</h1>
+      <h1 className="title">Create New Task</h1>
       <Form className="mx-3" >
         <Form.Group className="mb-3" controlId="formTaskName">
           <Form.Control
